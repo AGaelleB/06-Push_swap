@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 10:23:59 by abonnefo          #+#    #+#              #
-#    Updated: 2023/02/03 11:11:54 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/02/06 16:34:53 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SRCS = srcs/push_swap.c \
+	verif_argv.c \
+	put_in_tab.c \
 
 SRC_LIBFT = libft/ft_atoi.c \
 	libft/ft_bzero.c \
@@ -81,14 +83,16 @@ AR = ar rcs
 
 RM = rm -f
 
-%.o: %.c
+%.o: %.c #@echo "\033[0;30m-gcc *.c in progress\033[0m"
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "\033[5;36m-gcc *.c in progress\033[0m"
-
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "\033[1;32m[Make : 'so_long' is done]\033[0m"
+	@echo "\033[5;36m\n-gcc *.c libft done\033[0m"
+	@echo "\033[5;36m-gcc *.c get_next_line done\033[0m"
+	@echo "\033[5;36m-gcc *.c ft_printf done\033[0m"
+	@echo "\033[5;36m-gcc *.c push_swap done\n\033[0m"
+	@echo "\033[1;32m[Make : 'push_swap' is done]\033[0m"
 
 all : $(NAME)
 
