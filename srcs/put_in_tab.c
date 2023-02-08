@@ -6,13 +6,13 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:46:44 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/06 16:38:03 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:23:25 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	**ft_put_in_tab(char ac)
-{
+// char	**ft_put_in_tab(char ac) 
+// {
 	
-}
+// }
