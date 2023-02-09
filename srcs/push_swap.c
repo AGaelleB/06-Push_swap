@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:49:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/08 17:41:30 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:14:14 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,100 +14,46 @@
 
 /*
 coder toutes les fonctions genre ft_ra
-
-int	ft_check_size_int(int ac, char **av)
-int max 2147483647 // int min -2147483648
-
-Implementer l'algorithme radix
-	• une liste vide
-	• une fonction qui vérifiera si la liste est vide
-	• une fonction qui calculera la taille de la liste
-	• une fonction qui ajoutera un élement a une position donnée
-	• une fonction qui récuperera un élement a une position donnée
-	• une fonction qui modifiera un élement a une position donnée
-	• une fonction qui effacera un élement a une position donnée
-	• une fonction qui effacera tous les élements de la liste
 */
-
-typedef struct s_lst
-{
-	void			*content;
-	int				*data;
-	struct s_lst	*next;
-}					t_lst;
-
-void	*ft_empty_list(void)
-{
-	return NULL;
-}
-
-int	*ft_is_empty_list(t_lst *list)
-{
-	if (list == NULL)
-		return (1);
-	else
-		return (0);
-}
-
-t_lst	*ft_add_pos(t_lst *list, int data, int pos)
-{
-	t_lst	*position = list;
-	t_lst	*next_pos = position->next;
-	t_lst	*new_list = malloc(sizeof(t_lst));
-
-	new_list->content = NULL;
-	new_list->data = &data;
-	new_list->next = next_pos;
-	position->next = new_list;
-
-	return (new_list);
-}
-
-void	ft_print_list(t_lst *list)
-{
-	printf("test\n");
-	while (!ft_is_empty_list(list))
-	{
-		ft_printf("%d\n", list->data);
-		list = list->next;
-	}
-}
 
 int	main(int ac, char **av)
 {
-	t_lst	*list = ft_empty_list();
+	t_lst	*list = NULL;
+	int	i;
+	int	j;
+	int	current_pos;
 
-	t_lst *head = NULL;
-	t_lst *tail = NULL;
-
+	j = 0;
+	i = 1;
 	if (ft_check_ac(ac, av) == 0)
+	{
 		ft_printf("Error : alphanumeric parameters in argv\n");
-
-	ft_print_list(list);
-
-	int i = 1;
+		return (0);
+	}
 	while (i < ac)
 	{
-		t_lst *new_list = malloc(sizeof(t_lst));
-		new_list->content = NULL;
-		new_list->data = malloc(sizeof(int));
-		new_list->data = ft_atoi(av[i]);
-		new_list->next = NULL;
-		if (head == NULL)
-		{
-			head = new_list;
-			tail = new_list;
-		}
-		else
-		{
-			tail->next = new_list;
-			tail = new_list;
-		}
+		current_pos = ft_atoi(av[i]);
+		list = ft_add_pos(list, current_pos, j);
 		i++;
+		j++;
 	}
-	tail->next = head;
-	list = head;
 	ft_print_list(list);
-
+	ft_free_list(list);
 	return (0);
 }
+
+	// ft_printf("la liste est elle vide ? : %d\n", ft_is_empty_list(list));
+	// ft_printf("data en pos 0 = %d\n", ft_get_at(list, 0));
+	// list = ft_add_pos(list, 10, 0);
+	// ft_printf("la liste est elle vide ? : %d\n", ft_is_empty_list(list));
+	// ft_print_list(list);
+	// list = ft_add_pos(list, 20, 0);
+	// ft_print_list(list);
+	// list = ft_add_pos(list, 500, 0);
+	// ft_print_list(list);
+	// ft_printf("data en pos 2 = %d\n", ft_get_at(list, 2));
+	// ft_set_at(list, 999, 2);
+	// ft_printf("longueur liste = %d\n", ft_lstsize(list));
+	// ft_printf("data en pos 2 apres ft_set_at 999 = %d\n", ft_get_at(list, 2));
+	// list = ft_free_list(list); // utiliser ft_lstclear
+	// ft_printf("longueur liste apres free = %d\n", ft_lstsize(list));

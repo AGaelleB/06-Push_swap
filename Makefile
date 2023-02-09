@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 10:23:59 by abonnefo          #+#    #+#              #
-#    Updated: 2023/02/08 17:02:22 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/02/09 11:05:27 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CC = gcc
 CFLAGS = -Wall #-Wextra -Werror -g3
 
 SRCS = srcs/push_swap.c \
+	srcs/utils_free.c \
+	srcs/utils_set.c \
 	srcs/verif_arg.c \
 
 SRC_LIBFT = libft/ft_atoi.c \

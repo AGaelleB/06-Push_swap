@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:05 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:11:29 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,31 @@
 # include "../includes/get_next_line.h"
 # include "../includes/libft.h"
 
+
+typedef struct s_lst
+{
+	int				*data;
+	struct s_lst	*next;
+}					t_lst;
+
 /******************************* push_sawp.c *********************************/
 
+/******************************* utils_free.c ********************************/
 
-/******************************* put_in_tab.c ********************************/
+int	ft_is_empty_list(t_lst *list);
+t_lst	*ft_free_list(t_lst *list);
+t_lst	*ft_free_at_list(t_lst *list, int pos);
 
+/******************************* utils_set.c *********************************/
+
+t_lst	*ft_add_pos(t_lst *list, int data, int pos);
+int	ft_get_at(t_lst *list, int pos);
+void	ft_set_at(t_lst *list, int data, int pos);
+void	ft_print_list(t_lst *list);
 
 /******************************* verif_arg.c *********************************/
 
 int	ft_check_ac(int ac, char **av);
+
 
 #endif
