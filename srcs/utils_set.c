@@ -81,7 +81,7 @@ void	ft_set_at(t_lst *list, int data, int pos)
 	list->data = data;
 }
 
-void	ft_print_list(t_lst *list)
+void	ft_print_list(t_lst *list) // A SUPPRIMER
 {
 	if (list == NULL)
 		return;
@@ -90,5 +90,4 @@ void	ft_print_list(t_lst *list)
 		ft_printf("%d\n", list->data);
 		list = list->next;
 	}
-	ft_printf("\n");
 }

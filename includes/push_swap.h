@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/09 11:11:29 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:33:33 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,19 @@
 # include "../includes/libft.h"
 
 
-typedef struct s_lst
+typedef struct	s_lst
 {
 	int				*data;
+	// struct s_lst	*a;
+	// struct s_lst	*b;
 	struct s_lst	*next;
 }					t_lst;
+
+// typedef struct	s_pile
+// {
+// 	struct s_pile	*a;
+// 	struct s_pile	*b;
+// }					t_pile;
 
 /******************************* push_sawp.c *********************************/
 
@@ -56,6 +64,14 @@ void	ft_print_list(t_lst *list);
 /******************************* verif_arg.c *********************************/
 
 int	ft_check_ac(int ac, char **av);
+
+/******************************* swap.c *********************************/
+
+t_lst	*sa(t_lst *a);
+t_lst	*sb(t_lst *b);
+t_lst	*ss(t_lst *a, t_lst *b);
+
+
 
 
 #endif
