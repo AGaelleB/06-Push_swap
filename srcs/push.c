@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:23:38 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/10 15:18:23 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:45:37 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,13 @@ t_pile	*ft_push(t_pile *src, t_pile *dest)
 	int	pos_zero_src;
 
 	pos_zero_src = ft_first_cell(src);
-	dest->pile_b = ft_add_pos(dest, pos_zero_src, 0);
+	dest = ft_add_pos(dest, pos_zero_src, 0);
 
-	src->pile_a = ft_free_at_pos(src, 0);
+	// src->pile_a = ft_free_at_pos(src, 0);
 	// src = src->next;
 
-	// return (dest);
+	return (dest);
 }
-
 
 // typedef struct s_image {
 // 	void	*img_sand;

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:49:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/10 15:18:52 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:42:03 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	main(int ac, char **av)
 	ft_printf("********************\n\n");
 	
 	/*JE PUSH A VERS B*/
-	// pile_b = ft_push(pile_a, pile_b);
-	// pile_a = ft_free_at_pos(pile_a, 0); // A SUPPRIMER
+	pile_b = ft_push(pile_a, pile_b);
+	pile_a = ft_free_at_pos(pile_a, 0); // A SUPPRIMER
 	ft_push(pile_a, pile_b);
 	ft_printf("********PUSH********\n");
 	ft_print_list(pile_a);
