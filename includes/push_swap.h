@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/13 11:03:41 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:00:16 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ typedef struct	s_pile {
 	int				data;
 	struct s_pile	*pile_a;
 	struct s_pile	*pile_b;
+	struct s_pile	*before;
 	struct s_pile	*next;
 }					t_pile;
 
+void	ft_rotate_a(t_pile *pile);
 
 void	ft_swap_pile_a(t_pile *pile_a);
 void	ft_swap_pile_b(t_pile *pile);
@@ -70,8 +72,19 @@ void	ft_set_at(t_pile *list, int data, int pos);
 void	ft_print_list(t_pile *list); // A SUPPRIMER
 int	ft_is_empty_list(t_pile *list);
 
+int ft_first_cell(t_pile *pile);
+int	ft_lst_size(t_pile *pile);
+int	ft_check_ac(int ac, char **av);
+void	ft_rotate_b(t_pile *pile);
+void	ft_rotate_a_and_b(t_pile *pile);
+void	ft_reverse_rotate_a(t_pile *pile);
+int	ft_last_cell(t_pile *pile);
+t_pile	*ft_delete_last_cell(t_pile *pile);
+void	ft_reverse_rotate_b(t_pile *pile);
+void	ft_reverse_rotate_a_and_b(t_pile *pile);
 
 
+void	degeu(t_pile *pile);
 
 
 // /******************************* push_sawp.c *********************************/

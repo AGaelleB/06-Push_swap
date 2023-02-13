@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 17:34:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/03 11:57:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:29:20 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_lstsize(t_list *lst)
 	i = 0;
 	while (lst)
 	{
-		lst = lst-> next;
+		lst = lst -> next;
 		i++;
 	}
 	return (i);

@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils_at.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 11:49:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/13 16:59:41 by abonnefo         ###   ########.fr       */
+/*   Created: 2023/02/13 16:39:47 by abonnefo          #+#    #+#             */
+/*   Updated: 2023/02/13 17:00:02 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_get_at(t_pile *list, int pos)
 {
-	t_pile	pile;
-	int		i;
-	int		j;
-	int		current_pos;
+	int	i;
 
-	pile.pile_a = NULL;
-	pile.pile_b = NULL;
-	j = 0;
-	i = 1;
-	if (ft_check_ac(ac, av) == 0)
+	i = 0;
+	if (ft_is_empty_list(list))
 	{
-		ft_printf("Error : alphanumeric parameters in argv\n");
-		return (0);
+		ft_printf("empty list\n");
+		return (-1);
 	}
-	while (i < ac)
+	while (i < pos)
 	{
-		current_pos = ft_atoi(av[i]);
-		pile.pile_a = ft_add_pos(pile.pile_a, current_pos, j);
 		i++;
-		j++;
+		list = list->next;
 	}
-	degeu(&pile);
-	return (0);
+	return (list->data);
 }
+
+int	ft_first_cell(t_pile *pile)
+{
+	if (pile == NULL)
+		return (0);
+	return (pile->data);
+}
+
+int	ft_last_cell(t_pile *pile)
+{
+	if (pile == NULL)
+		return (0);
+	while (pile->next != NULL)
+		pile = pile->next;
+	return (pile->data);
+}
+

@@ -12,10 +12,12 @@
 
 #include "../includes/push_swap.h"
 
-t_pile *ft_create_cell(int data)
+t_pile	*ft_create_cell(int data)
 {
-	t_pile *cell = malloc(sizeof(t_pile));
-	if(!cell)
+	t_pile	*cell;
+
+	cell = malloc(sizeof(t_pile));
+	if (!cell)
 		return (0);
 	cell->data = data;
 	cell->next = NULL;
@@ -24,18 +26,21 @@ t_pile *ft_create_cell(int data)
 
 t_pile	*ft_add_pos(t_pile *list, int data, int pos)
 {
-	t_pile	*previous_pos = list;
-	t_pile	*position = list;
-	t_pile	*cell = ft_create_cell(data);
-	int	i;
+	t_pile	*previous_pos;
+	t_pile	*position;
+	t_pile	*cell;
+	int		i;
 
+	previous_pos = list;
+	position = list;
+	cell = ft_create_cell(data);
 	i = 0;
 	if (ft_is_empty_list(list))
 		return (cell);
 	if (pos == 0)
 	{
 		cell->next = list;
-		return (cell); // pointeur de tete de liste
+		return (cell);
 	}
 	while (i < pos)
 	{
@@ -48,38 +53,20 @@ t_pile	*ft_add_pos(t_pile *list, int data, int pos)
 	return (list);
 }
 
-int	ft_get_at(t_pile *list, int pos)
-{
-	int	i;
-	
-	i = 0;
-	if (ft_is_empty_list(list))
-	{
-		ft_printf("empty list\n");
-		return (-1);
-	}
-	while (i < pos)
-	{
-		i++;
-		list = list->next;
-	}
-	return (list->data);	
-}
-
 void	ft_set_at(t_pile *list, int data, int pos)
 {
 	int	i;
-	
+
 	i = 0;
 	if (ft_is_empty_list(list))
 	{
 		ft_printf("empty list\n");
-		return;
+		return ;
 	}
-	if(pos > ft_lstsize(list))
+	if (pos > ft_lst_size(list))
 	{
 		ft_printf("position > size of list\n");
-		return;
+		return ;
 	}
 	while (i < pos)
 	{
@@ -89,13 +76,15 @@ void	ft_set_at(t_pile *list, int data, int pos)
 	list->data = data;
 }
 
-void	ft_print_list(t_pile *list) // A SUPPRIMER
+int	ft_lst_size(t_pile *pile)
 {
-	if (list == NULL)
-		return;
-	while (list)
+	int	i;
+
+	i = 0;
+	while (pile)
 	{
-		ft_printf("%d\n", list->data);
-		list = list->next;
+		pile = pile->next;
+		i++;
 	}
+	return (i);
 }

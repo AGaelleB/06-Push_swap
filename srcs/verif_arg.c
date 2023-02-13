@@ -25,15 +25,15 @@ int	ft_check_ac(int ac, char **av)
 	char	*arg;
 
 	i = 1;
-	while(i < ac)
+	while (i < ac)
 	{
 		j = 0;
 		arg = av[i];
 		lenght_arg = ft_strlen(av[i]);
-		while(j < lenght_arg)
+		while (j < lenght_arg)
 		{
 			if (ft_isalpha(arg[j]))
-				return(0);
+				return (0);
 			j++;
 		}
 		i++;

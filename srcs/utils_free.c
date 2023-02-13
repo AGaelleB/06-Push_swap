@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:00:44 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/10 14:24:10 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:52:46 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	ft_is_empty_list(t_pile *list)
 
 t_pile	*ft_free_list(t_pile *list)
 {
-	t_list *temp = NULL;
+	t_pile	*temp;
+
+	temp = NULL;
 	while (list)
 	{
 		temp = list->next;
@@ -32,36 +34,26 @@ t_pile	*ft_free_list(t_pile *list)
 	return (list);
 }
 
-t_pile	*ft_free_at_pos(t_pile *list, int pos)
+t_pile	*ft_delete_last_cell(t_pile *pile)
 {
-	t_pile	*position = list;
-	list = list->next;
-	free(position);
-	return (list);
+	t_pile	*prev;
+	t_pile	*curr;
+
+	if (ft_is_empty_list(pile))
+		return (NULL);
+	if (pile->next == NULL)
+	{
+		free(pile);
+		return (NULL);
+	}
+	prev = NULL;
+	curr = pile;
+	while (curr->next != NULL)
+	{
+		prev = curr;
+		curr = curr->next;
+	}
+	free(curr);
+	prev->next = NULL;
+	return (pile);
 }
-
-// t_pile	*ft_free_at_pos(t_pile *list, int pos)
-// {
-// 	t_pile	*previous_pos = list;
-// 	t_pile	*position = list;
-// 	int	i;
-
-// 	i = 0;
-// 	if (ft_is_empty_list(list))
-// 		return (NULL);
-// 	if (pos == 0)
-// 	{
-// 		list = list->next;
-// 		free(position);
-// 		return (list);
-// 	}
-// 	while (i < pos)
-// 	{
-// 		i++;
-// 		previous_pos = position;
-// 		position = position-> next;
-// 	}
-// 	previous_pos->next = position->next;
-// 	free(position);
-// 	return (list);
-// }
