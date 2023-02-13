@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:39:47 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/13 17:00:02 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:03:25 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ int	ft_last_cell(t_pile *pile)
 		pile = pile->next;
 	return (pile->data);
 }
-
