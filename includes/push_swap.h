@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/13 10:37:33 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:03:41 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ typedef struct	s_pile {
 void	ft_swap_pile_a(t_pile *pile_a);
 void	ft_swap_pile_b(t_pile *pile);
 void	ft_swap_pile_a_and_b(t_pile *pile);
+
+int ft_first_cell(t_pile *pile);
+void	ft_push_pile_a_to_b(t_pile *pile);
+void	ft_push_pile_b_to_a(t_pile *pile);
+
 t_pile	*ft_free_at_pos(t_pile *list, int pos);// a changer, inclure dans mon swap
 
 

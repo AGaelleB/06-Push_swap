@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:23:38 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/13 10:59:16 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:03:12 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int ft_first_cell(t_pile *pile)
 	return pile->data;
 }
 
-t_pile	*ft_push_pile_a_to_b(t_pile *pile)
+void	ft_push_pile_a_to_b(t_pile *pile)
 {
 	t_pile	*position = pile->pile_a;
 	int	pos_zero;
@@ -40,7 +40,7 @@ t_pile	*ft_push_pile_a_to_b(t_pile *pile)
 	free(position);
 }
 
-t_pile	*ft_push_pile_b_to_a(t_pile *pile)
+void	ft_push_pile_b_to_a(t_pile *pile)
 {
 	t_pile	*position = pile->pile_b;
 	int	pos_zero;
