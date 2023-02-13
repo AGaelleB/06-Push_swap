@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/12 18:35:14 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/13 10:37:33 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,17 @@
 # include "../includes/get_next_line.h"
 # include "../includes/libft.h"
 
-// typedef struct	s_pile {
-// 	int				data;
-// 	// int				position_zero;
-// 	struct s_pile	*pile_a;
-// 	struct s_pile	*pile_b;
-// 	struct s_pile	*next;
-// }					t_pile, pile;
-
-
 typedef struct	s_pile {
 	int				data;
-	int				*pile_a;
-	int				*pile_b;
+	struct s_pile	*pile_a;
+	struct s_pile	*pile_b;
 	struct s_pile	*next;
 }					t_pile;
 
+
 void	ft_swap_pile_a(t_pile *pile_a);
+void	ft_swap_pile_b(t_pile *pile);
+void	ft_swap_pile_a_and_b(t_pile *pile);
 t_pile	*ft_free_at_pos(t_pile *list, int pos);// a changer, inclure dans mon swap
 
 
