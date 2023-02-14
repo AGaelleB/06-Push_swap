@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:59:30 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/14 11:21:32 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:25:28 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	degeu(t_pile *pile)
 	ft_printf("%s*********%s\n\n", GREEN, RESET);
 	
 	// /*JE SWAP*/
-	// ft_swap_pile_a(&pile);
+	// ft_swap_pile_a(pile);
 	// ft_printf("%s***SWAP***%s\n", RED, RESET);
-	// print_piles(pile.pile_a, pile.pile_b);
+	// print_piles(pile->pile_a, pile->pile_b);
 	// ft_printf("%s**********%s\n\n", RED, RESET);
 	
 	/*JE PUSH A VERS B*/ 

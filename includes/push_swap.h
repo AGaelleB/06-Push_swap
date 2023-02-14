@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/14 12:59:19 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:59:09 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,11 @@ void	ft_reverse_rotate_a_and_b(t_pile *pile);
 int	ft_pile_a_is_sort(t_pile *pile);
 int	ft_pile_b_is_sort(t_pile *pile);
 
-void	degeu(t_pile *pile);
+void	ft_sort_small_pile(t_pile *pile);
+
+
+void	degeu(t_pile *pile); // a supprimer
+void	print_piles(t_pile *pile_a, t_pile *pile_b); // a supprimer
 
 
 // /******************************* push_sawp.c *********************************/
