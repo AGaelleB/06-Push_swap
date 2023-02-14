@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 10:23:59 by abonnefo          #+#    #+#              #
-#    Updated: 2023/02/13 17:02:19 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/02/14 12:06:05 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,14 @@ SRCS = srcs/push_swap.c \
 	srcs/push.c \
 	srcs/reverse_rotate.c \
 	srcs/rotate.c \
+	srcs/sort_param.c \
 	srcs/swap.c \
 	srcs/utils_at.c \
 	srcs/utils_free.c \
 	srcs/utils_set.c \
 	srcs/verif_arg.c \
-	Divers/A_SUPPRIMER.c \ #A SUPPRIMER
+	srcs/verif_sort.c \
+	Divers/A_SUPPRIMER.c \
 
 SRC_LIBFT = libft/ft_atoi.c \
 	libft/ft_bzero.c \

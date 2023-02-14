@@ -1,0 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   verif_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/14 10:17:38 by abonnefo          #+#    #+#             */
+/*   Updated: 2023/02/14 13:09:12 by abonnefo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
+int	ft_pile_a_is_sort(t_pile *pile)
+{
+	int		i;
+	int		size;
+	t_pile	*temp;
+
+	i = 0;
+	size = ft_lst_size(pile->pile_a);
+	temp = pile->pile_a;
+	if (temp == NULL)
+		return (0);
+	while (temp->next)
+	{
+		if (temp->data < temp->next->data)
+			i++;
+		temp = temp->next;
+	}
+	if (i == size - 1)
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_pile_b_is_sort(t_pile *pile)
+{
+	int		i;
+	int		size;
+	t_pile	*temp;
+
+	i = 0;
+	size = ft_lst_size(pile->pile_b);
+	temp = pile->pile_b;
+	if (temp == NULL)
+		return (0);
+	while (temp->next)
+	{
+		if (temp->data < temp->next->data)
+			i++;
+		temp = temp->next;
+	}
+	if (i == size - 1)
+		return (1);
+	else
+		return (0);
+}
