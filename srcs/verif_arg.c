@@ -34,7 +34,7 @@ int	ft_check_ac(int ac, char **av)
 		{
 			if (ft_isalpha(arg[j]))
 			{
-				ft_printf("Error : alphanumeric parameters in argv\n");
+				ft_printf("%sError : invalid parameters%s\n", RED, RESET);
 				exit (0);
 			}
 			j++;
@@ -42,4 +42,44 @@ int	ft_check_ac(int ac, char **av)
 		i++;
 	}
 	return (1);
+}
+
+void	ft_check_no_arg(int ac, char **av)
+{
+	if (av[1] == NULL)
+	{
+		ft_printf("%sError : argv is empty%s\n", RED, RESET);
+		exit (0);
+	}
+}
+
+// void	ft_check_int_max_and_min(int ac, char **av)// a faire
+// {
+// 	if (av[1] == NULL)
+// 	{
+// 		ft_printf("%sError : argv is empty%s\n", RED, RESET);
+// 		exit (0);
+// 	}
+// }
+
+void	ft_check_same_arg(t_pile *pile)
+{
+	t_pile	*temp1;
+	t_pile	*temp2;
+
+	temp1 = pile->pile_a;
+	while (temp1)
+	{
+		temp2 = temp1->next;
+		while (temp2)
+		{
+			if (temp1->data == temp2->data)
+			{
+				ft_printf("%sError : same numbers put in argv%s\n", RED, RESET);
+				exit(0);
+			}
+			temp2 = temp2->next;
+		}
+		temp1 = temp1->next;
+	}
 }

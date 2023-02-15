@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:49:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/14 14:56:19 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:34:45 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,13 @@ int	main(int ac, char **av)
 	pile.pile_b = NULL;
 	
 	ft_check_ac(ac, av);
+	ft_check_no_arg(ac, av);
 	ft_put_in_pile(&pile, ac, av);
+	ft_check_if_sort(&pile);
+	ft_check_same_arg(&pile);
 	degeu(&pile);
-	// ft_printf("pile A sort ? = %d\n", ft_pile_a_is_sort(&pile));
-	// ft_printf("pile B sort ? = %d\n", ft_pile_b_is_sort(&pile));
-
 	if (ac <= 6)
 		ft_sort_small_pile(&pile);
-
 	ft_free_list(pile.pile_a);
 	ft_free_list(pile.pile_b);
 	return (0);

@@ -1,0 +1,7 @@
+faire laverif des arg : 
+
+- 3 arg ou moins
+- 1 same number
+- int max et int min
+- aucun arg
+- si la liste est deja triée

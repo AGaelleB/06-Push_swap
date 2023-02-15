@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/14 13:59:09 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:34:00 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 
 #define RESET "\033[0m"
 #define BLACK "\033[30m"
@@ -48,44 +51,40 @@ typedef struct	s_pile {
 	struct s_pile	*next;
 }					t_pile;
 
-void	ft_rotate_a(t_pile *pile);
 
+
+void	ft_check_no_arg(int ac, char **av);
+void	ft_check_if_sort(t_pile *pile);
+void	ft_check_same_arg(t_pile *pile);
+
+
+void	ft_rotate_a(t_pile *pile);
 void	ft_swap_pile_a(t_pile *pile_a);
 void	ft_swap_pile_b(t_pile *pile);
 void	ft_swap_pile_a_and_b(t_pile *pile);
-
-int ft_first_cell(t_pile *pile);
+int		ft_first_cell(t_pile *pile);
 void	ft_push_pile_a_to_b(t_pile *pile);
 void	ft_push_pile_b_to_a(t_pile *pile);
-
-
 t_pile	*ft_add_pos(t_pile *list, int data, int pos); 
 t_pile	*ft_free_list(t_pile *list);
-
-
-t_pile *ft_create_cell(int data);
-int	ft_get_at(t_pile *list, int pos);
+t_pile	*ft_create_cell(int data);
+int		ft_get_at(t_pile *list, int pos);
 void	ft_set_at(t_pile *list, int data, int pos);
 void	ft_print_list(t_pile *list); // A SUPPRIMER
-int	ft_is_empty_list(t_pile *list);
-
-int ft_first_cell(t_pile *pile);
-int	ft_lst_size(t_pile *pile);
-int	ft_check_ac(int ac, char **av);
+int		ft_is_empty_list(t_pile *list);
+int 	ft_first_cell(t_pile *pile);
+int		ft_lst_size(t_pile *pile);
+int		ft_check_ac(int ac, char **av);
 void	ft_rotate_b(t_pile *pile);
 void	ft_rotate_a_and_b(t_pile *pile);
 void	ft_reverse_rotate_a(t_pile *pile);
-int	ft_last_cell(t_pile *pile);
+int		ft_last_cell(t_pile *pile);
 t_pile	*ft_delete_last_cell(t_pile *pile);
 void	ft_reverse_rotate_b(t_pile *pile);
 void	ft_reverse_rotate_a_and_b(t_pile *pile);
-
-int	ft_pile_a_is_sort(t_pile *pile);
-int	ft_pile_b_is_sort(t_pile *pile);
-
+int		ft_pile_a_is_sort(t_pile *pile);
+int		ft_pile_b_is_sort(t_pile *pile);
 void	ft_sort_small_pile(t_pile *pile);
-
-
 void	degeu(t_pile *pile); // a supprimer
 void	print_piles(t_pile *pile_a, t_pile *pile_b); // a supprimer
 

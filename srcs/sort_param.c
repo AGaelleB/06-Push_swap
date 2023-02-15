@@ -6,59 +6,58 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/14 16:47:24 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:27:39 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	ft_find_smallest(t_pile *pile)
+{
+	t_pile	*temp;
+	int		smallest;
+
+	temp = pile->next;
+	smallest = ft_first_cell(pile);
+	while (temp)
+	{
+		if (temp->data < smallest)
+			smallest = temp->data;
+		temp = temp->next;
+	}
+	return (smallest);
+}
+
 void	ft_sort_small_pile(t_pile *pile)
 {
-	// t_pile	*temp;
-	printf("\nDEBUT ft_sort_small_pile\n\n");
+	int	smallest;
+	int	size;
+	int	i;
 
-	ft_push_pile_a_to_b(pile); //pb
-	ft_push_pile_a_to_b(pile); //pb
+	size = ft_lst_size(pile->pile_a);
+	i = 5 - size;
+	while (i < 2)
+	{
+		smallest = ft_find_smallest(pile->pile_a);
+		if (ft_first_cell(pile->pile_a) != smallest)
+			ft_reverse_rotate_a(pile);
+		else
+		{
+			ft_push_pile_a_to_b(pile);
+			i++;
+		}
+	}
+	if (size > 2 && pile->pile_a->data > pile->pile_a->next->data)
+		ft_swap_pile_a(pile);
+	if (size > 3 && pile->pile_a->data > pile->pile_a->next->next->data)
+		ft_reverse_rotate_a(pile);
+	if (size > 2 && pile->pile_a->next->data > pile->pile_a->next->next->data)
+		ft_reverse_rotate_a(pile);
+	if (size > 2 && pile->pile_a->data > pile->pile_a->next->data)
+		ft_swap_pile_a(pile);
+	while (pile->pile_b != NULL)
+		ft_push_pile_b_to_a(pile);
 
-	printf("\nPILE APRES PUSH\n\n");
-	print_piles(pile->pile_a, pile->pile_b);
-
-	// temp = pile->pile_a;
-	while (pile->pile_a != NULL)	//!ft_pile_a_is_sort(pile)
-	{
-		if (pile->pile_a->data > pile->pile_a->next->next->data)
-			ft_rotate_a(pile);
-		if (pile->pile_a->data > pile->pile_a->next->data)
-			ft_swap_pile_a(pile);
-		break;
-	}
-	printf("\nPILE APRES TRI 1\n");
-	print_piles(pile->pile_a, pile->pile_b);
-	
-	ft_push_pile_b_to_a(pile); //pa
-	
-	while (pile->pile_a != NULL)
-	{
-		if (pile->pile_a->data > pile->pile_a->next->next->data)
-			ft_rotate_a(pile);
-		if (pile->pile_a->data > pile->pile_a->next->data)
-			ft_swap_pile_a(pile);
-		break;
-	}
-	
-	printf("\nPILE APRES TRI 2\n");
-	print_piles(pile->pile_a, pile->pile_b);
-	
-	ft_push_pile_b_to_a(pile); //pa
-	
-	while (pile->pile_a != NULL)
-	{
-		if (pile->pile_a->data > pile->pile_a->next->next->data)
-			ft_rotate_a(pile);
-		if (pile->pile_a->data > pile->pile_a->next->data)
-			ft_swap_pile_a(pile);
-		break;
-	}
-	printf("\nPILE APRES TRI 3\n");
+	ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET);
 	print_piles(pile->pile_a, pile->pile_b);
 }
