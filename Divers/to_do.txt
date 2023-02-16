@@ -5,3 +5,8 @@ faire laverif des arg :
 - int max et int min
 - aucun arg
 - si la liste est deja triée
+
+
+regarder :
+quick sort_param
+bucket sort

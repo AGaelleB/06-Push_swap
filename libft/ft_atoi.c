@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:54:05 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/03 11:57:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:20:07 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ Le terme d'atoi est un acronyme signifiant : ASCII to integer.
 
 #include "../includes/libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	nbr;
+	int		i;
+	int		sign;
+	long	nbr;
 
 	i = 0;
 	sign = 1;

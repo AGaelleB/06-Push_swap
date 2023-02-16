@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:39:47 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/13 17:03:25 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:20:08 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,26 @@ int	ft_first_cell(t_pile *pile)
 	return (pile->data);
 }
 
-int	ft_last_cell(t_pile *pile)
+int	ft_last_cell_a(t_pile *pile)
 {
-	if (pile == NULL)
+	t_pile	*temp;
+
+	temp = pile->pile_a;
+	if (temp == NULL)
 		return (0);
-	while (pile->next != NULL)
-		pile = pile->next;
-	return (pile->data);
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp->data);
+}
+
+int	ft_last_cell_b(t_pile *pile)
+{
+	t_pile	*temp;
+
+	temp = pile->pile_b;
+	if (temp == NULL)
+		return (0);
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp->data);
 }

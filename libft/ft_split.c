@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:16:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/03 11:57:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:25:11 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static int	ft_alloctxt(char **tab, const char *s, char c)
 
 static void	ft_filltab(char **tab, const char *s, char c)
 {
-	int	i; // tab
-	int	j; // mot
+	int	i;
+	int	j;
 
 	i = 0;
 	while (*s && tab[i])
@@ -104,7 +104,7 @@ char	**ft_split(char const *s, char c)
 	tab = malloc((nb_words + 1) * sizeof(char *));
 	if (tab == 0)
 		return (0);
-	tab[nb_words] = 0; //alloue null a la derniere position du tab
+	tab[nb_words] = 0;
 	if (nb_words > 0)
 	{
 		if (ft_alloctxt(tab, s, c) == 0)

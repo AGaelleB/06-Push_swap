@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/15 17:34:00 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:40:18 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 #  define BUFFER_SIZE 42
 # endif
 
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
-#define RESET "\033[0m"
-#define BLACK "\033[30m"
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define BLUE "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN "\033[36m"
-#define WHITE "\033[37m"
+# define RESET "\033[0m"
+# define BLACK "\033[30m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN "\033[36m"
+# define WHITE "\033[37m"
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -44,83 +44,81 @@
 # include "../includes/get_next_line.h"
 # include "../includes/libft.h"
 
-typedef struct	s_pile {
-	int				data;
+typedef struct s_pile {
+	long			data;
+	int				size_a;
+	int				size_b;
 	struct s_pile	*pile_a;
 	struct s_pile	*pile_b;
 	struct s_pile	*next;
 }					t_pile;
 
+/******************************* A SUPPRIMER *********************************/
+void	ft_print_list(t_pile *list);
+void	degeu(t_pile *pile);
+void	print_piles(t_pile *pile_a, t_pile *pile_b);
+/*****************************************************************************/
 
+/******************************* push_sawp.c *********************************/
 
-void	ft_check_no_arg(int ac, char **av);
-void	ft_check_if_sort(t_pile *pile);
-void	ft_check_same_arg(t_pile *pile);
+/********************************* push.c ************************************/
 
+void	ft_push_pile_a_to_b(t_pile *pile);
+void	ft_push_pile_b_to_a(t_pile *pile);
+
+/***************************** reverse_rotate.c ******************************/
+
+void	ft_reverse_rotate_a(t_pile *pile);
+void	ft_reverse_rotate_b(t_pile *pile);
+void	ft_reverse_rotate_a_and_b(t_pile *pile);
+
+/******************************** rotate.c ***********************************/
 
 void	ft_rotate_a(t_pile *pile);
+void	ft_rotate_b(t_pile *pile);
+void	ft_rotate_a_and_b(t_pile *pile);
+
+/******************************* sort_param.c ********************************/
+
+void	ft_sort_small_pile(t_pile *pile);
+
+/********************************* swap.c ************************************/
+
 void	ft_swap_pile_a(t_pile *pile_a);
 void	ft_swap_pile_b(t_pile *pile);
 void	ft_swap_pile_a_and_b(t_pile *pile);
-int		ft_first_cell(t_pile *pile);
-void	ft_push_pile_a_to_b(t_pile *pile);
-void	ft_push_pile_b_to_a(t_pile *pile);
-t_pile	*ft_add_pos(t_pile *list, int data, int pos); 
-t_pile	*ft_free_list(t_pile *list);
-t_pile	*ft_create_cell(int data);
+
+/******************************** utils_at.c *********************************/
+
 int		ft_get_at(t_pile *list, int pos);
-void	ft_set_at(t_pile *list, int data, int pos);
-void	ft_print_list(t_pile *list); // A SUPPRIMER
+int		ft_first_cell(t_pile *pile); // faire a et b ? 
+int		ft_last_cell_a(t_pile *pile);
+int		ft_last_cell_b(t_pile *pile);
+
+/******************************* utils_free.c ********************************/
+
 int		ft_is_empty_list(t_pile *list);
-int 	ft_first_cell(t_pile *pile);
-int		ft_lst_size(t_pile *pile);
-int		ft_check_ac(int ac, char **av);
-void	ft_rotate_b(t_pile *pile);
-void	ft_rotate_a_and_b(t_pile *pile);
-void	ft_reverse_rotate_a(t_pile *pile);
-int		ft_last_cell(t_pile *pile);
+t_pile	*ft_free_list(t_pile *list);
 t_pile	*ft_delete_last_cell(t_pile *pile);
-void	ft_reverse_rotate_b(t_pile *pile);
-void	ft_reverse_rotate_a_and_b(t_pile *pile);
+
+/******************************* utils_set.c *********************************/
+
+t_pile	*ft_create_cell(long data);
+t_pile	*ft_add_pos(t_pile *list, long data, int pos);
+int		ft_lst_size(t_pile *pile);
+void	ft_init_struct(t_pile *pile);
+
+/******************************* verif_arg.c *********************************/
+
+int		ft_check_ac(int ac, char **av);
+void	ft_check_no_arg(int ac, char **av);
+void	ft_check_same_arg(t_pile *pile);
+void	ft_check_int_max_and_min(t_pile *pile);
+
+/******************************* verif_sort.c ********************************/
+
 int		ft_pile_a_is_sort(t_pile *pile);
 int		ft_pile_b_is_sort(t_pile *pile);
-void	ft_sort_small_pile(t_pile *pile);
-void	degeu(t_pile *pile); // a supprimer
-void	print_piles(t_pile *pile_a, t_pile *pile_b); // a supprimer
-
-
-// /******************************* push_sawp.c *********************************/
-
-// /******************************* utils_free.c ********************************/
-
-// int		ft_is_empty_list(t_pile *list);
-// t_pile	*ft_free_list(t_pile *list);
-// t_pile	*ft_free_at_pos(t_pile *list, int pos);
-
-// /******************************* utils_set.c *********************************/
-
-// t_pile	*ft_add_pos(t_pile *list, int data, int pos);
-// int		ft_get_at(t_pile *list, int pos);
-// void	ft_set_at(t_pile *list, int data, int pos);
-// void	ft_print_list(t_pile *list);
-
-// /******************************* verif_arg.c *********************************/
-
-// int		ft_check_ac(int ac, char **av);
-
-// /********************************* swap.c ************************************/
-
-// t_pile	*ft_swap(t_pile *pile);
-// // t_pile	*sb(t_pile *pile);
-// // t_pile	*ss(t_pile *pile_a, t_pile *pile_b);
-
-// /********************************* push.c ************************************/
-
-// // t_pile	*ft_first_cell(t_pile *pile);
-// int ft_first_cell(t_pile *pile);
-
-// // t_pile	*ft_push(t_pile *pile_a, t_pile *pile_b);
-// t_pile	*ft_push(t_pile *src, t_pile *dest);
-
+void	ft_check_if_sort(t_pile *pile);
 
 #endif

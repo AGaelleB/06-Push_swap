@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/15 17:27:39 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:20:31 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,9 @@ int	ft_find_smallest(t_pile *pile)
 void	ft_sort_small_pile(t_pile *pile)
 {
 	int	smallest;
-	int	size;
 	int	i;
 
-	size = ft_lst_size(pile->pile_a);
-	i = 5 - size;
+	i = 5 - pile->size_a;
 	while (i < 2)
 	{
 		smallest = ft_find_smallest(pile->pile_a);
@@ -47,17 +45,19 @@ void	ft_sort_small_pile(t_pile *pile)
 			i++;
 		}
 	}
-	if (size > 2 && pile->pile_a->data > pile->pile_a->next->data)
+	if (pile->size_a >= 2 && pile->pile_a->data > pile->pile_a->next->data)
 		ft_swap_pile_a(pile);
-	if (size > 3 && pile->pile_a->data > pile->pile_a->next->next->data)
+	if (pile->size_a > 3 && pile->pile_a->data > ft_last_cell_a(pile))
 		ft_reverse_rotate_a(pile);
-	if (size > 2 && pile->pile_a->next->data > pile->pile_a->next->next->data)
+	if (pile->size_a > 2 && pile->pile_a->next->data > ft_last_cell_a(pile))
 		ft_reverse_rotate_a(pile);
-	if (size > 2 && pile->pile_a->data > pile->pile_a->next->data)
+	if (pile->size_a > 2 && pile->pile_a->data > pile->pile_a->next->data)
 		ft_swap_pile_a(pile);
 	while (pile->pile_b != NULL)
 		ft_push_pile_b_to_a(pile);
-
-	ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET);
-	print_piles(pile->pile_a, pile->pile_b);
 }
+
+/* FOR VERIF < 5
+	ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET); // A SUPPRIMER
+	print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+*/

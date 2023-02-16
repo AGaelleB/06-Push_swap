@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-t_pile	*ft_create_cell(int data)
+t_pile	*ft_create_cell(long data)
 {
 	t_pile	*cell;
 
@@ -24,7 +24,7 @@ t_pile	*ft_create_cell(int data)
 	return (cell);
 }
 
-t_pile	*ft_add_pos(t_pile *list, int data, int pos)
+t_pile	*ft_add_pos(t_pile *list, long data, int pos)
 {
 	t_pile	*previous_pos;
 	t_pile	*position;
@@ -53,28 +53,28 @@ t_pile	*ft_add_pos(t_pile *list, int data, int pos)
 	return (list);
 }
 
-void	ft_set_at(t_pile *list, int data, int pos)
-{
-	int	i;
+// void	ft_set_at(t_pile *list, long data, int pos)
+// {
+// 	int	i;
 
-	i = 0;
-	if (ft_is_empty_list(list))
-	{
-		ft_printf("empty list\n");
-		return ;
-	}
-	if (pos > ft_lst_size(list))
-	{
-		ft_printf("position > size of list\n");
-		return ;
-	}
-	while (i < pos)
-	{
-		i++;
-		list = list->next;
-	}
-	list->data = data;
-}
+// 	i = 0;
+// 	if (ft_is_empty_list(list))
+// 	{
+// 		ft_printf("empty list\n");
+// 		return ;
+// 	}
+// 	if (pos > ft_lst_size(list))
+// 	{
+// 		ft_printf("position > size of list\n");
+// 		return ;
+// 	}
+// 	while (i < pos)
+// 	{
+// 		i++;
+// 		list = list->next;
+// 	}
+// 	list->data = data;
+// }
 
 int	ft_lst_size(t_pile *pile)
 {
@@ -87,4 +87,10 @@ int	ft_lst_size(t_pile *pile)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_init_struct(t_pile *pile)
+{
+	pile->size_a = ft_lst_size(pile->pile_a);
+	pile->size_b = ft_lst_size(pile->pile_b);
 }
