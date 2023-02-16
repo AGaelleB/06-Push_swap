@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/16 12:40:18 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:45:30 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define WHITE "\033[37m"
 
 # include <unistd.h>
-# include <stdlib.h>
+# include <stdlib.h>gi
 # include <stddef.h>
 # include <stdio.h>
 # include <sys/types.h>

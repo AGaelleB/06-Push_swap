@@ -10,3 +10,6 @@ faire laverif des arg :
 regarder :
 quick sort_param
 bucket sort
+
+
+faire une fonction qui va faire qu un affichage si par exemple j ai ra et rb, je n'affiche que rrr

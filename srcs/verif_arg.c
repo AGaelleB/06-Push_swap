@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:16:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/16 11:22:12 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:45:21 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_check_ac(int ac, char **av)
 		lenght_arg = ft_strlen(av[i]);
 		while (j < lenght_arg)
 		{
-			if (ft_isalpha(arg[j]))
+			if (!ft_isdigit(arg[j]) && arg[j] != '+' && arg[j] != '-')
 			{
 				ft_printf("%sError : invalid parameters%s\n", RED, RESET);
 				exit (0);
