@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 10:23:59 by abonnefo          #+#    #+#              #
-#    Updated: 2023/02/14 12:06:05 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/02/16 14:43:02 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS = srcs/push_swap.c \
 	srcs/push.c \
 	srcs/reverse_rotate.c \
 	srcs/rotate.c \
-	srcs/sort_param.c \
+	srcs/sort_medium_pile.c \
+	srcs/sort_small_pile.c \
 	srcs/swap.c \
 	srcs/utils_at.c \
 	srcs/utils_free.c \

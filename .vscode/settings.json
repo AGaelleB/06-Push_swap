@@ -3,6 +3,7 @@
         "libft.h": "c",
         "random": "c",
         "push_swap.h": "c",
-        "get_next_line.h": "c"
+        "get_next_line.h": "c",
+        "limits": "c"
     }
 }

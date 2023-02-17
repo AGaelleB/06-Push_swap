@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/16 13:47:57 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/17 09:42:47 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,16 @@ typedef struct s_pile {
 	long			data;
 	int				size_a;
 	int				size_b;
+	int				min_bucket;
+	int				max_bucket;
+	int				min_pile;
+	int				max_pile;
+	int				nb_in_bucket;
+	int				mediane;
 	struct s_pile	*pile_a;
 	struct s_pile	*pile_b;
 	struct s_pile	*next;
+	struct s_pile	*prev;
 }					t_pile;
 
 /******************************* A SUPPRIMER *********************************/
@@ -78,8 +85,16 @@ void	ft_rotate_a(t_pile *pile);
 void	ft_rotate_b(t_pile *pile);
 void	ft_rotate_a_and_b(t_pile *pile);
 
-/******************************* sort_param.c ********************************/
+/**************************** sort_medium_pile.c *****************************/
 
+int		ft_index_first(t_pile *pile);
+int		ft_index_second(t_pile *pile);
+void	ft_sort_medium_pile(t_pile *pile);
+
+/***************************** sort_small_pile.c *****************************/
+
+int		ft_find_max_value(t_pile *pile);
+int		ft_find_min_value(t_pile *pile);
 void	ft_sort_small_pile(t_pile *pile);
 
 /********************************* swap.c ************************************/
