@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/17 09:42:47 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:34:46 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ typedef struct s_pile {
 	long			data;
 	int				size_a;
 	int				size_b;
-	int				min_bucket;
-	int				max_bucket;
+	int				min_chunk;
+	int				max_chunk;
 	int				min_pile;
 	int				max_pile;
-	int				nb_in_bucket;
+	int				nb_in_chunk;
 	int				mediane;
 	struct s_pile	*pile_a;
 	struct s_pile	*pile_b;
