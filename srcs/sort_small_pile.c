@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/18 22:27:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/18 23:07:12 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ ft_printf("%spile->pile_a->next->next->prev->data = %d %s\n", MAGENTA, pile->pil
 	while (pile->pile_b != NULL)
 		ft_push_pile_b_to_a(pile);
 	ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET); // A SUPPRIMER
-	print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+	ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
 
 
 }
