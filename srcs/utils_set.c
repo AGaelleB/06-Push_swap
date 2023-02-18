@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-t_pile	*ft_create_cell(long data)
+t_pile	*ft_create_cell(long data) // OK MODIFIE
 {
 	t_pile	*cell;
 
@@ -21,10 +21,11 @@ t_pile	*ft_create_cell(long data)
 		return (0);
 	cell->data = data;
 	cell->next = NULL;
+	// cell->prev = NULL; // NEW
 	return (cell);
 }
 
-t_pile	*ft_add_pos(t_pile *list, long data, int pos)
+t_pile	*ft_add_pos(t_pile *list, long data, int pos) // OK MODIFIE
 {
 	t_pile	*previous_pos;
 	t_pile	*position;
@@ -40,6 +41,8 @@ t_pile	*ft_add_pos(t_pile *list, long data, int pos)
 	if (pos == 0)
 	{
 		cell->next = list;
+		// list->prev = cell; // NEW
+
 		return (cell);
 	}
 	while (i < pos)
@@ -50,33 +53,12 @@ t_pile	*ft_add_pos(t_pile *list, long data, int pos)
 	}
 	previous_pos->next = cell;
 	cell->next = position;
+	cell->prev = previous_pos; // NEW ICIIIIIIIIIIIIIIIIIIIIIIII
+	// position->prev = cell; // NEW SEGFAULT
 	return (list);
 }
 
-// void	ft_set_at(t_pile *list, long data, int pos)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (ft_is_empty_list(list))
-// 	{
-// 		ft_printf("empty list\n");
-// 		return ;
-// 	}
-// 	if (pos > ft_lst_size(list))
-// 	{
-// 		ft_printf("position > size of list\n");
-// 		return ;
-// 	}
-// 	while (i < pos)
-// 	{
-// 		i++;
-// 		list = list->next;
-// 	}
-// 	list->data = data;
-// }
-
-int	ft_lst_size(t_pile *pile)
+int	ft_lst_size(t_pile *pile) // OK MODIFIE
 {
 	int	i;
 
@@ -86,11 +68,21 @@ int	ft_lst_size(t_pile *pile)
 		pile = pile->next;
 		i++;
 	}
+	// while (pile && pile->prev) // NEW
+	// {
+	// 	pile = pile->prev; // NEW
+	// 	i++; // NEW
+	// }
+	
 	return (i);
 }
 
-void	ft_init_struct(t_pile *pile)
+void	ft_init_struct(t_pile *pile) // OK MODIFIE
 {
 	pile->size_a = ft_lst_size(pile->pile_a);
 	pile->size_b = ft_lst_size(pile->pile_b);
+	// if (pile->pile_a) // NEW
+	// 	pile->pile_a->prev = NULL; // NEW
+	// if (pile->pile_b) // NEW
+	// 	pile->pile_b->prev = NULL; // NEW
 }

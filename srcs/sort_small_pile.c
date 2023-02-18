@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/16 15:07:16 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/18 22:27:22 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ void	ft_sort_small_pile(t_pile *pile)
 {
 	int	smallest;
 	int	i;
+	
+ft_printf("\n%spile->pile_a->data = %d %s\n", MAGENTA, pile->pile_a->data, RESET); // A SUPPRIMER
+ft_printf("%spile->pile_a->next->data = %d %s\n", MAGENTA, pile->pile_a->next->data, RESET); // A SUPPRIMER
+ft_printf("%spile->pile_a->next->next->data = %d %s\n", MAGENTA, pile->pile_a->next->next->data, RESET); // A SUPPRIMER
+ft_printf("%spile->pile_a->next->next->prev->data = %d %s\n", MAGENTA, pile->pile_a->next->next->prev->data, RESET); // A SUPPRIMER
 
 	i = 5 - pile->size_a;
 	while (i < 2)
@@ -73,7 +78,10 @@ void	ft_sort_small_pile(t_pile *pile)
 		ft_push_pile_b_to_a(pile);
 	ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET); // A SUPPRIMER
 	print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+
+
 }
 
 /* FOR VERIF < 5
 */
+
