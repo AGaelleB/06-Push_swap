@@ -6,11 +6,22 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:59:30 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/20 16:46:07 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:05:45 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_print_list(t_pile *list)
+{
+	if (list == NULL)
+		return ;
+	while (list)
+	{
+		ft_printf("%d\n", list->data);
+		list = list->next;
+	}
+}
 
 void	ft_print_piles(t_pile *pile_a, t_pile *pile_b)
 {
@@ -90,15 +101,4 @@ void	degeu(t_pile *pile)
 	// ft_printf("%s**REVERSE ROTATE RRR**%s\n", CYAN, RESET);
 	// ft_print_piles(pile->pile_a, pile->pile_b);
 	// ft_printf("%s**********%s\n\n", CYAN, RESET);
-}
-
-void	ft_print_list(t_pile *list)
-{
-	if (list == NULL)
-		return ;
-	while (list)
-	{
-		ft_printf("%d\n", list->data);
-		list = list->next;
-	}
 }

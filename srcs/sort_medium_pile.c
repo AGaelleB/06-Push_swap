@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/20 16:58:33 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:06:53 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ void	ft_move_medium_pile_a(t_pile *pile) // CHANTIER
 			ft_push_pile_a_to_b(pile);
 			ft_print_piles(pile->pile_a, pile->pile_b);
 			exit (0);
-		}	
+		}
 	}
 }
 
