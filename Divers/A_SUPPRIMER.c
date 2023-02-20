@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:59:30 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/18 23:09:31 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:46:07 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 void	ft_print_piles(t_pile *pile_a, t_pile *pile_b)
 {
-	ft_print_list(pile_a);
-	ft_printf("-----\n 'a'\n\n");
-	ft_print_list(pile_b);
-	ft_printf("-----\n 'b' \n");
+	if (pile_a != NULL)
+	{
+		ft_printf("%s-----\n", BLUE);
+		ft_print_list(pile_a);
+		ft_printf("%s-----\n 'a' \n\n%s", BLUE, RESET);
+	}
+	if (pile_b != NULL)
+	{
+		ft_printf("%s-----\n", MAGENTA);
+		ft_print_list(pile_b);
+		ft_printf("%s-----\n 'b' \n\n%s", MAGENTA, RESET);
+	}
 }
 
 void	degeu(t_pile *pile)

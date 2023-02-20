@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/20 15:02:21 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:58:33 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	ft_define_chunk(t_pile *pile)
 	ft_printf("nb_in_chunk = %d\n", pile->nb_in_chunk);
 	ft_printf("\nmin_chunk = %d\n", pile->min_chunk);
 	ft_printf("max_chunk = %d\n", pile->max_chunk);
-	ft_printf("pile->size_a = %d\n", pile->size_a);
+	ft_printf("\npile->size_a = %d\n", pile->size_a);
 	ft_printf("pile->mediane = %d\n", pile->mediane);
 }
 
-int	ft_index_first(t_pile *pile) // OK
+int	ft_data_index_first(t_pile *pile) // OK
 {
 	t_pile	*temp;
 	int		index_value;
@@ -38,14 +38,14 @@ int	ft_index_first(t_pile *pile) // OK
 	temp = pile->pile_a;
 	index_value = 0;
 
-	// ft_printf("\n1er temp->data = %d\n", temp->data);
-
 	while ((pile->min_chunk + pile->nb_in_chunk) < pile->max_pile)
 	{
 		while (temp)
 		{
 			if (temp->data >= pile->min_chunk && temp->data <= pile->max_chunk)
 			{
+				printf("\nIN THE IF pile->min_chunk %d\n", pile->min_chunk);
+				printf("IN THE IF pile->max_chunk %d\n", pile->max_chunk);
 				index_value = temp->data;
 				return (index_value);
 			}
@@ -53,11 +53,14 @@ int	ft_index_first(t_pile *pile) // OK
 		}
 		pile->min_chunk = pile->min_chunk + pile->nb_in_chunk;
 		pile->max_chunk = pile->max_chunk + pile->nb_in_chunk;
+		printf("\nLA pile->min_chunk %d\n", pile->min_chunk);
+		printf("LA pile->max_chunk %d\n", pile->max_chunk);
+		temp = pile->pile_a;
 	}
 	return (index_value);
 }
 
-int	ft_index_last(t_pile *pile) // cherche la last valeure du chunck de B en H
+int	ft_data_index_last(t_pile *pile)
 {
 	t_pile	*last;
 	int		index_value;
@@ -82,6 +85,7 @@ int	ft_index_last(t_pile *pile) // cherche la last valeure du chunck de B en H
 		}
 		pile->min_chunk = pile->min_chunk + pile->nb_in_chunk;
 		pile->max_chunk = pile->max_chunk + pile->nb_in_chunk;
+		last = pile->pile_a;
 	}
 	return (index_value);
 }
@@ -116,7 +120,6 @@ int	ft_pos_index_last(t_pile *pile, int data)
 	return(i);
 }
 
-
 void	ft_move_medium_pile_a(t_pile *pile) // CHANTIER
 {
 	int	data_first;
@@ -124,8 +127,8 @@ void	ft_move_medium_pile_a(t_pile *pile) // CHANTIER
 
 	while (pile->pile_a)
 	{
-		data_first = ft_index_first(pile);
-		data_last = ft_index_last(pile);
+		data_first = ft_data_index_first(pile);
+		data_last = ft_data_index_last(pile);
 		if ((pile->size_a - ft_pos_index_last(pile, data_last)) < ft_pos_index_first(pile, data_first))
 		{
 			if (ft_pos_index_last(pile, data_last) > pile->mediane)
@@ -152,17 +155,21 @@ void	ft_move_medium_pile_a(t_pile *pile) // CHANTIER
 				ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
 			}
 		}
+		if (pile->pile_a->next == NULL)
+		{
+			ft_push_pile_a_to_b(pile);
+			ft_print_piles(pile->pile_a, pile->pile_b);
+			exit (0);
+		}	
 	}
 }
 
 void	ft_sort_medium_pile(t_pile *pile)
 {
 	ft_define_chunk(pile);
-	ft_printf("\n%sft_index_first = %d%s\n", MAGENTA, ft_index_first(pile), RESET);
-	ft_printf("%sft_index_last = %d%s\n\n", MAGENTA, ft_index_last(pile), RESET);
-
-	// ft_printf("\n%sft_pos_index_first = %d%s\n", GREEN, ft_pos_index_first(pile, data_first), RESET);
-	// ft_printf("%sft_pos_index_last = %d%s\n\n", GREEN, ft_pos_index_last(pile, data_last), RESET);
+	
+	ft_printf("\n%sft_data_index_first = %d%s\n", MAGENTA, ft_data_index_first(pile), RESET);
+	ft_printf("%sft_data_index_last = %d%s\n\n", MAGENTA, ft_data_index_last(pile), RESET);
 
 	ft_move_medium_pile_a(pile);
 	
