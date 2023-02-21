@@ -1,77 +1,57 @@
 
-// voici une parti de mon code en liste simplement chainee que je souhaite tranformer en liste doublement chainee, comment faire ?
-
-
-typedef struct s_pile {
-	long			data;
-	int				size_a;
-	int				size_b;
-	int				min_bucket;
-	int				max_bucket;
-	int				min_pile;
-	int				max_pile;
-	int				nb_in_bucket;
-	int				mediane;
-	struct s_pile	*pile_a;
-	struct s_pile	*pile_b;
-	struct s_pile	*next;
-}					t_pile;
-
-
-void	ft_put_in_pile(t_pile *pile, int ac, char **av)
+void    ft_less_hundred(t_pile *pile)
 {
-	int			i;
-	int			j;
-	long		current_pos;
+    int data_top;
+    int position_top;
+    int data_bottom;
+    int position_bottom;
+    int difference;
 
-	i = 1;
-	j = 0;
-	while (i < ac)
-	{
-		current_pos = ft_atoi(av[i]);
-		pile->pile_a = ft_add_pos(pile->pile_a, current_pos, j);
-		i++;
-		j++;
-	}
-}
+    data_top = ft_find_from_top(pile);
+    position_top = ft_find_top_cell(pile, data_top);
+    data_bottom = ft_find_from_bottom(pile);
+    position_bottom = ft_find_bottom_cell(pile, data_bottom);
+    difference = pile->size - position_bottom;
+    ft_mediane_value(pile);
 
-t_pile	*ft_create_cell(long data)
-{
-	t_pile	*cell;
-
-	cell = malloc(sizeof(t_pile));
-	if (!cell)
-		return (0);
-	cell->data = data;
-	cell->next = NULL;
-	return (cell);
-}
-
-t_pile	*ft_add_pos(t_pile *list, long data, int pos)
-{
-	t_pile	*previous_pos;
-	t_pile	*position;
-	t_pile	*cell;
-	int		i;
-
-	previous_pos = list;
-	position = list;
-	cell = ft_create_cell(data);
-	i = 0;
-	if (ft_is_empty_list(list))
-		return (cell);
-	if (pos == 0)
-	{
-		cell->next = list;
-		return (cell);
-	}
-	while (i < pos)
-	{
-		i++;
-		previous_pos = position;
-		position = position-> next;
-	}
-	previous_pos->next = cell;
-	cell->next = position;
-	return (list);
+    while (pile->pile_a)
+    {
+        // printpiles(pile);
+        data_top = ft_find_from_top(pile); //ok
+        position_top = ft_find_top_cell(pile, data_top);
+        data_bottom = ft_find_from_bottom(pile); //ok
+        position_bottom = ft_find_bottom_cell(pile, data_bottom);
+        difference = pile->size - position_bottom;
+        ft_mediane_value(pile); //ok
+        if (position_top <= difference)
+        {
+            if (pile->mediane >= position_top)
+            {
+                while (position_top != 0)
+                {
+                    ft_rotate_a(pile);
+                    position_top = ft_find_top_cell(pile, data_top);
+                }
+                ft_push_a(pile);
+            }
+        }
+        else if (position_top > difference)
+        {
+            if (pile->mediane <= position_bottom)
+            {
+                while (position_bottom != 0)
+                {
+                    ft_reverse_rotate_a(pile);
+                    position_bottom = ft_find_bottom_cell(pile, data_bottom);
+                }
+                ft_push_a(pile);
+            }
+        }
+        if (pile->pile_a->next == NULL)
+        {
+            ft_push_a(pile);
+            // printpiles(pile);
+            exit (0);
+        }
+    }
 }

@@ -4,7 +4,10 @@
         "random": "c",
         "push_swap.h": "c",
         "get_next_line.h": "c",
-        "limits": "c"
+        "limits": "c",
+        "chrono": "c",
+        "semaphore": "c",
+        "algorithm": "c"
     },
     "cmake.sourceDirectory": "${workspaceFolder}/push_swap_visualizer/build/_deps/catch2-src/examples"
 }

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/21 10:48:19 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:17:40 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_define_chunk(t_pile *pile)
 {
 	pile->min_pile_a = ft_find_min_value(pile->pile_a);
-	pile->min_pile_b = ft_find_min_value(pile->pile_b);
+	// pile->min_pile_b = ft_find_min_value(pile->pile_b); // SEGFAULT
 	pile->max_pile = ft_find_max_value(pile->pile_a);
 	pile->min_chunk = pile->min_pile_a;
 	pile->nb_in_chunk = ((pile->max_pile - pile->min_pile_a) / 5); // tester les chunks
@@ -122,16 +122,83 @@ int	ft_pos_index_last(t_pile *pile, int data)
 	return(i);
 }
 
-void	ft_move_medium_pile_a(t_pile *pile)
+/*********************************************************************************************/
+
+int	ft_find_closest_value(t_pile *pile)
+{
+	t_pile	*temp;
+	int		closest;
+
+	temp = pile->next;
+	closest = ft_first_cell(pile);
+	while (temp)
+	{
+		if (temp->data - 1 != temp->data) //(temp->data > closest)
+			closest = temp->data;
+		temp = temp->next;
+	}
+	return (closest);
+}
+
+void	ft_move_medium_pile_b(t_pile *pile) // ICI je veux definir si je rra ou ra avant pb
+{
+	t_pile	*temp_b;
+	int		highest_in_b;
+	int		smallest_in_b;
+	int		closest_in_b;
+
+	temp_b = pile->pile_b;
+	highest_in_b = ft_find_max_value(pile->pile_b);
+	smallest_in_b = ft_find_min_value(pile->pile_b);
+	closest_in_b = ft_find_closest_value(pile->pile_b);
+
+	// printf("temp_b->data = %d\n", temp_b->data);
+	// printf("pile->pos_zero = %d\n", pile->pos_zero);
+	// printf("highest_in_b = %d\n", highest_in_b);
+	// printf("smallest_in_b = %d\n", smallest_in_b);
+	// printf("closest_in_b = %d\n", closest_in_b);
+
+	if (ft_first_cell(pile->pile_a) >= highest_in_b) //alors je rotate pour que n+1 ou n-1 soit egale a la highest
+	{
+		// printf("\n ICI \n");
+		if (ft_first_cell(pile->pile_b) != highest_in_b)
+		{
+			// if (ft_pos_index_first(pile, highest_in_b) > pile->mediane)
+				ft_rotate_b(pile);
+			// else if (ft_pos_index_first(pile, highest_in_b) <= pile->mediane)
+				// ft_reverse_rotate_b(pile);
+		}
+	}
+	else if (ft_first_cell(pile->pile_a) < smallest_in_b) //alors je rotate pour que n+1 ou n-1 soit egale a la smallest
+	{
+		if (ft_first_cell(pile->pile_b) != smallest_in_b)
+		{
+			// if (ft_pos_index_first(pile, smallest_in_b) > pile->mediane)
+				ft_rotate_b(pile);
+			// else if (ft_pos_index_first(pile, smallest_in_b) <= pile->mediane)
+				// ft_reverse_rotate_b(pile);
+		}
+	}
+	else if (ft_first_cell(pile->pile_a) > smallest_in_b && ft_first_cell(pile->pile_a) < highest_in_b)
+	{
+		// if (ft_first_cell(pile->pile_b) != closest_in_b) // bouger la pile pour se trouver entre 
+			ft_rotate_b(pile);
+	}
+	ft_push_pile_a_to_b(pile);
+}
+
+/*********************************************************************************************/
+
+void	ft_move_medium_pile_a(t_pile *pile) // NE MARCHE PLUS
 {
 	int	data_first;
 	int	data_last;
-	int	data_to_push;
 
 	while (pile->pile_a)
 	{
 		data_first = ft_data_index_first(pile);
 		data_last = ft_data_index_last(pile);
+		pile->mediane = pile->size_a / 2; // AJOUT
 		if ((pile->size_a - ft_pos_index_last(pile, data_last)) < ft_pos_index_first(pile, data_first))
 		{
 			if (ft_pos_index_last(pile, data_last) > pile->mediane)
@@ -141,11 +208,15 @@ void	ft_move_medium_pile_a(t_pile *pile)
 					ft_reverse_rotate_a(pile);
 					// ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
 				}
-				ft_push_pile_a_to_b(pile);
+				if (pile->pile_b == NULL)
+					ft_push_pile_a_to_b(pile);
+				else
+					ft_move_medium_pile_b(pile); //NEW
+				// 	ft_push_pile_a_to_b(pile);
 				// ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
 			}
 		}
-		if ((pile->size_a - ft_pos_index_first(pile, data_first)) >= ft_pos_index_first(pile, data_first))
+		else if ((pile->size_a - ft_pos_index_first(pile, data_first)) >= ft_pos_index_first(pile, data_first))
 		{
 			if (ft_pos_index_first(pile, data_first) <= pile->mediane)
 			{
@@ -154,7 +225,11 @@ void	ft_move_medium_pile_a(t_pile *pile)
 					ft_rotate_a(pile);
 					// ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
 				}
-				ft_push_pile_a_to_b(pile);
+				if (pile->pile_b == NULL)
+					ft_push_pile_a_to_b(pile);
+				else
+					ft_move_medium_pile_b(pile); //NEW
+				// 	ft_push_pile_a_to_b(pile);
 				// ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
 			}
 		}
@@ -162,29 +237,16 @@ void	ft_move_medium_pile_a(t_pile *pile)
 		{
 			ft_push_pile_a_to_b(pile);
 			// ft_print_piles(pile->pile_a, pile->pile_b);
-			exit (0);
+			// exit (0);
 		}
 	}
+	while (pile->pile_b != NULL)
+		ft_push_pile_b_to_a(pile); //pa
 }
-
-void	ft_move_medium_pile_b(t_pile *pile, int data_to_push)
-{
-	
-}
-
-
-
-
-
-
 
 void	ft_sort_medium_pile(t_pile *pile)
 {
 	ft_define_chunk(pile);
-	
-	// ft_printf("\n%sft_data_index_first = %d%s\n", MAGENTA, ft_data_index_first(pile), RESET);
-	// ft_printf("%sft_data_index_last = %d%s\n\n", MAGENTA, ft_data_index_last(pile), RESET);
-
 	ft_move_medium_pile_a(pile);
 	
 	// ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET); // A SUPPRIMER
