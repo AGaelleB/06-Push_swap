@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/18 23:07:07 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:40:53 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ typedef struct s_pile {
 	int				size_b;
 	int				min_chunk;
 	int				max_chunk;
-	int				min_pile;
+	int				min_pile_a;
+	int				min_pile_b;
 	int				max_pile;
 	int				nb_in_chunk;
 	int				mediane;
@@ -87,8 +88,11 @@ void	ft_rotate_a_and_b(t_pile *pile);
 
 /**************************** sort_medium_pile.c *****************************/
 
-int		ft_index_first(t_pile *pile);
-int		ft_index_second(t_pile *pile);
+void	ft_define_chunk(t_pile *pile);
+int		ft_data_index_first(t_pile *pile);
+int		ft_data_index_last(t_pile *pile);
+int		ft_pos_index_first(t_pile *pile, int data);
+int		ft_pos_index_last(t_pile *pile, int data);
 void	ft_sort_medium_pile(t_pile *pile);
 
 /***************************** sort_small_pile.c *****************************/

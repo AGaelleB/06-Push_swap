@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/18 23:07:12 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:33:11 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,33 @@ int	ft_find_min_value(t_pile *pile)
 	return (min);
 }
 
-void	ft_sort_small_pile(t_pile *pile)
+void	ft_ra_or_rra(t_pile *pile)
 {
 	int	smallest;
 	int	i;
-	
-ft_printf("\n%spile->pile_a->data = %d %s\n", MAGENTA, pile->pile_a->data, RESET); // A SUPPRIMER
-ft_printf("%spile->pile_a->next->data = %d %s\n", MAGENTA, pile->pile_a->next->data, RESET); // A SUPPRIMER
-ft_printf("%spile->pile_a->next->next->data = %d %s\n", MAGENTA, pile->pile_a->next->next->data, RESET); // A SUPPRIMER
-ft_printf("%spile->pile_a->next->next->prev->data = %d %s\n", MAGENTA, pile->pile_a->next->next->prev->data, RESET); // A SUPPRIMER
 
 	i = 5 - pile->size_a;
 	while (i < 2)
 	{
 		smallest = ft_find_min_value(pile->pile_a);
 		if (ft_first_cell(pile->pile_a) != smallest)
-			ft_reverse_rotate_a(pile);
+		{
+			if (ft_pos_index_first(pile, smallest) > pile->mediane)
+				ft_rotate_a(pile);
+			else if (ft_pos_index_first(pile, smallest) <= pile->mediane)
+				ft_reverse_rotate_a(pile);
+		}
 		else
 		{
 			ft_push_pile_a_to_b(pile);
 			i++;
 		}
 	}
+}
+
+void	ft_sort_small_pile(t_pile *pile)
+{
+	ft_ra_or_rra(pile);
 	if (pile->size_a >= 2 && pile->pile_a->data > pile->pile_a->next->data)
 		ft_swap_pile_a(pile);
 	if (pile->size_a > 3 && pile->pile_a->data > ft_last_cell_a(pile))
@@ -76,12 +81,4 @@ ft_printf("%spile->pile_a->next->next->prev->data = %d %s\n", MAGENTA, pile->pil
 		ft_swap_pile_a(pile);
 	while (pile->pile_b != NULL)
 		ft_push_pile_b_to_a(pile);
-	ft_printf("\n%s***END SORT***%s\n", MAGENTA, RESET); // A SUPPRIMER
-	ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
-
-
 }
-
-/* FOR VERIF < 5
-*/
-
