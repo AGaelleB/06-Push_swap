@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/22 14:12:30 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:45:09 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ void	ft_move_medium_pile_b(t_pile *pile)
 
 	highest_in_b = ft_find_max_value(pile->pile_b);
 	smallest_in_b = ft_find_min_value(pile->pile_b);
+	closest_in_b = ft_find_closest_value(pile);
 
 	if (ft_first_cell(pile->pile_a) >= highest_in_b)
 	{
@@ -170,22 +171,17 @@ void	ft_move_medium_pile_b(t_pile *pile)
 	else if (ft_first_cell(pile->pile_a) > smallest_in_b
 		&& ft_first_cell(pile->pile_a) < highest_in_b)
 	{
-		closest_in_b = ft_find_closest_value(pile);
 		while (ft_first_cell(pile->pile_b) != closest_in_b)
 		{
 			ft_rotate_b(pile);
 		}
 	}
-	// while (ft_first_cell(pile->pile_b) != highest_in_b)
-	// {
-	// 	ft_rotate_b(pile);
-	// }
 	ft_push_pile_a_to_b(pile);
 }
 
 /*********************************************************************************************/
 
-void	ft_move_medium_pile_a(t_pile *pile) // NE MARCHE PLUS
+void	ft_move_medium_pile_a(t_pile *pile)
 {
 	int	data_first;
 	int	data_last;
@@ -194,7 +190,7 @@ void	ft_move_medium_pile_a(t_pile *pile) // NE MARCHE PLUS
 	{
 		data_first = ft_data_index_first(pile);
 		data_last = ft_data_index_last(pile);
-		pile->mediane = pile->size_a / 2; // AJOUT
+		pile->mediane = pile->size_a / 2;
 		if ((pile->size_a - ft_pos_index_last(pile, data_last)) < ft_pos_index_first(pile, data_first))
 		{
 			if (ft_pos_index_last(pile, data_last) > pile->mediane)
@@ -230,7 +226,6 @@ void	ft_move_medium_pile_a(t_pile *pile) // NE MARCHE PLUS
 		if (pile->pile_a->next == NULL)
 		{
 			ft_move_medium_pile_b(pile);
-			// ft_push_pile_a_to_b(pile);
 			// ft_print_piles(pile->pile_a, pile->pile_b);
 		}
 	}
