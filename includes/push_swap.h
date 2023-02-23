@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 14:25:52 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:20:48 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ typedef struct s_pile {
 	int				max_chunk;
 	int				min_pile_a;
 	int				min_pile_b;
-	int				max_pile;
-	int				nb_in_chunk;
+	int				max_pile_a;
+	int				size_of_chunk;
 	int				mediane_a;
 	int				mediane_b;
 	int				pos_zero;
