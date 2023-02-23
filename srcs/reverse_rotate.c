@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:24:18 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/20 16:26:16 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:04:42 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_reverse_rotate_b(t_pile *pile)
 {
 	int	temp;
 
-	temp = ft_last_cell_b(pile->pile_b);
+	temp = ft_last_cell_b(pile); //OUPS
 	pile->pile_b = ft_add_pos(pile->pile_b, temp, 0);
 	pile->pile_b = ft_delete_last_cell(pile->pile_b);
 	ft_printf("rrb\n");

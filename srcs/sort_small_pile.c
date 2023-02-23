@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/21 10:33:11 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:24:02 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ int	ft_find_min_value(t_pile *pile)
 
 void	ft_ra_or_rra(t_pile *pile)
 {
-	int	smallest;
 	int	i;
 
 	i = 5 - pile->size_a;
-	while (i < 2)
+	pile->mediane_a = pile->size_a / 2;
+	while (i >= 0 && i < 2)
 	{
-		smallest = ft_find_min_value(pile->pile_a);
-		if (ft_first_cell(pile->pile_a) != smallest)
+		pile->smallest = ft_find_min_value(pile->pile_a);
+		if (ft_first_cell(pile->pile_a) != pile->smallest)
 		{
-			if (ft_pos_index_first(pile, smallest) > pile->mediane)
-				ft_rotate_a(pile);
-			else if (ft_pos_index_first(pile, smallest) <= pile->mediane)
+			if (ft_pos_index_first(pile->pile_a, pile->smallest) > pile->mediane_a)
 				ft_reverse_rotate_a(pile);
+			else if (ft_pos_index_first(pile->pile_a, pile->smallest) <= pile->mediane_a)
+				ft_rotate_a(pile);
 		}
 		else
 		{
@@ -73,11 +73,11 @@ void	ft_sort_small_pile(t_pile *pile)
 	ft_ra_or_rra(pile);
 	if (pile->size_a >= 2 && pile->pile_a->data > pile->pile_a->next->data)
 		ft_swap_pile_a(pile);
-	if (pile->size_a > 3 && pile->pile_a->data > ft_last_cell_a(pile))
-		ft_reverse_rotate_a(pile);
-	if (pile->size_a > 2 && pile->pile_a->next->data > ft_last_cell_a(pile))
-		ft_reverse_rotate_a(pile);
-	if (pile->size_a > 2 && pile->pile_a->data > pile->pile_a->next->data)
+	if (pile->size_a >= 4 && pile->pile_a->data > ft_last_cell_a(pile))
+			ft_reverse_rotate_a(pile); //faux ?
+	if (pile->size_a >= 3 && pile->pile_a->next->data > ft_last_cell_a(pile))
+		ft_reverse_rotate_a(pile); //faux ?
+	if (pile->size_a >= 3 && pile->pile_a->data > pile->pile_a->next->data)
 		ft_swap_pile_a(pile);
 	while (pile->pile_b != NULL)
 		ft_push_pile_b_to_a(pile);
