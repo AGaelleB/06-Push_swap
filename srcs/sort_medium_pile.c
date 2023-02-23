@@ -6,11 +6,28 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 12:27:57 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:23:07 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_ra_or_rra_medium_pile_b(t_pile *pile)
+{
+	int	highest_in_b;
+
+	pile->size_b = ft_lst_size(pile->pile_b);
+	if (pile->size_b > 2)
+		pile->mediane_b = pile->size_b / 2;
+	highest_in_b = ft_find_max_value(pile->pile_b);
+	while (ft_first_cell(pile->pile_b) != highest_in_b)
+	{
+		if (pile->mediane_b >= ft_pos_idx_first(pile->pile_b, highest_in_b))
+			ft_rotate_b(pile);
+		else
+			ft_reverse_rotate_b(pile);
+	}
+}
 
 void	ft_move_medium_pile_b(t_pile *pile)
 {

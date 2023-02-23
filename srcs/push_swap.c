@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:49:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 12:20:37 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:34:00 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int ac, char **av)
 	ft_check_int_max_and_min(&pile);
 	ft_check_same_arg(&pile);
 	ft_check_if_sort(&pile);
-	// degeu(&pile);
 	if (ac > 1 && ac <= 6)
 		ft_sort_small_pile(&pile);
 	if (ac > 6 && ac <= 101)

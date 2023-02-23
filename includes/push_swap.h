@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 12:19:19 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:25:52 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,6 @@ typedef struct s_pile {
 	struct s_pile	*prev;
 }					t_pile;
 
-/******************************* A SUPPRIMER *********************************/
-void	ft_print_list(t_pile *list);
-void	degeu(t_pile *pile);
-void	ft_print_piles(t_pile *pile_a, t_pile *pile_b);
-/*****************************************************************************/
-
-
-
-
-/******************************* push_sawp.c *********************************/
-
 /********************************* push.c ************************************/
 
 void	ft_push_pile_a_to_b(t_pile *pile);
@@ -99,11 +88,13 @@ void	ft_sort_big_pile(t_pile *pile);
 
 /**************************** sort_medium_pile.c *****************************/
 
+void	ft_ra_or_rra_medium_pile_b(t_pile *pile);
 void	ft_move_medium_pile_b(t_pile *pile);
 void	ft_sort_medium_pile(t_pile *pile);
 
 /***************************** sort_small_pile.c *****************************/
 
+void	ft_ra_or_rra_small_pile(t_pile *pile);
 void	ft_sort_small_pile(t_pile *pile);
 
 /********************************* swap.c ************************************/
@@ -115,7 +106,7 @@ void	ft_swap_pile_a_and_b(t_pile *pile);
 /******************************** utils_at.c *********************************/
 
 int		ft_get_at(t_pile *list, int pos);
-int		ft_first_cell(t_pile *pile); // faire a et b ? 
+int		ft_first_cell(t_pile *pile);
 int		ft_last_cell_a(t_pile *pile);
 int		ft_last_cell_b(t_pile *pile);
 
@@ -134,15 +125,11 @@ void	ft_init_struct(t_pile *pile);
 
 /**************************** utils_sort_move.c ******************************/
 
-void	ft_ra_or_rra_small_pile(t_pile *pile);
-void	ft_ra_or_rra_medium_pile_b(t_pile *pile);
 void	ft_move_last_medium_pile_a(t_pile *pile, int data_last);
 void	ft_move_first_medium_pile_a(t_pile *pile, int data_first);
-
 void	ft_ra_or_rra_big_pile_b(t_pile *pile);
 void	ft_move_last_big_pile_a(t_pile *pile, int data_last);
 void	ft_move_first_big_pile_a(t_pile *pile, int data_first);
-
 
 /**************************** utils_sort_find.c ******************************/
 

@@ -21,7 +21,6 @@ t_pile	*ft_create_cell(long data)
 		return (0);
 	cell->data = data;
 	cell->next = NULL;
-	cell->prev = NULL; //je garde ? 
 	return (cell);
 }
 
@@ -39,7 +38,7 @@ t_pile	*ft_add_pos(t_pile *list, long data, int pos)
 	if (ft_is_empty_list(list))
 		return (cell);
 	if (pos == 0)
-		return (cell->next = list, cell); // ici dans return
+		return (cell->next = list, cell);
 	while (i < pos)
 	{
 		i++;
