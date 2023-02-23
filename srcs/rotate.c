@@ -6,21 +6,11 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:24:18 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/20 16:26:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:48:28 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/*
-ra : Décale d’une position vers le haut tous les élements de la pile a
-Le premier élément devient le dernier.
-
-rb : Décale d’une position vers le haut tous les élements de la pile b
-Le premier élément devient le dernier.
-
-rr : ra et rb en même temps.
-*/
 
 void	ft_rotate_a(t_pile *pile)
 {

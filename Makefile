@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 10:23:59 by abonnefo          #+#    #+#              #
-#    Updated: 2023/02/16 14:43:02 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/02/23 12:07:08 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,23 @@ NAME = push_swap
 
 CC = gcc
 
-CFLAGS = -Wall #-Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRCS = srcs/push_swap.c \
 	srcs/push.c \
 	srcs/reverse_rotate.c \
 	srcs/rotate.c \
+	srcs/sort_big_pile.c \
 	srcs/sort_medium_pile.c \
 	srcs/sort_small_pile.c \
 	srcs/swap.c \
 	srcs/utils_at.c \
 	srcs/utils_free.c \
 	srcs/utils_set.c \
+	srcs/utils_sort_find.c \
+	srcs/utils_sort_move.c \
+	srcs/utils_sort_pos.c \
+	srcs/utils_sort.c \
 	srcs/verif_arg.c \
 	srcs/verif_sort.c \
 	Divers/A_SUPPRIMER.c \

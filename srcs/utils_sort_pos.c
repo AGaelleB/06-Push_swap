@@ -6,16 +6,16 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:23:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 09:25:00 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:12:51 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_pos_index_first(t_pile *pile, int data) //a
+int	ft_pos_idx_first(t_pile *pile, int data)
 {
 	t_pile	*temp;
-	int	i;
+	int		i;
 
 	temp = pile;
 	i = 0;
@@ -24,13 +24,13 @@ int	ft_pos_index_first(t_pile *pile, int data) //a
 		i++;
 		temp = temp->next;
 	}
-	return(i);
+	return (i);
 }
 
 int	ft_pos_index_last(t_pile *pile, int data)
 {
 	t_pile	*temp;
-	int	i;
+	int		i;
 
 	temp = pile->pile_a;
 	i = 0;
@@ -39,5 +39,5 @@ int	ft_pos_index_last(t_pile *pile, int data)
 		i++;
 		temp = temp->next;
 	}
-	return(i);
+	return (i);
 }

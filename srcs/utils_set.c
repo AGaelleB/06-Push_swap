@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-t_pile	*ft_create_cell(long data) // OK MODIFIE
+t_pile	*ft_create_cell(long data)
 {
 	t_pile	*cell;
 
@@ -21,11 +21,11 @@ t_pile	*ft_create_cell(long data) // OK MODIFIE
 		return (0);
 	cell->data = data;
 	cell->next = NULL;
-	// cell->prev = NULL; // NEW
+	cell->prev = NULL; //je garde ? 
 	return (cell);
 }
 
-t_pile	*ft_add_pos(t_pile *list, long data, int pos) // OK MODIFIE
+t_pile	*ft_add_pos(t_pile *list, long data, int pos)
 {
 	t_pile	*previous_pos;
 	t_pile	*position;
@@ -39,12 +39,7 @@ t_pile	*ft_add_pos(t_pile *list, long data, int pos) // OK MODIFIE
 	if (ft_is_empty_list(list))
 		return (cell);
 	if (pos == 0)
-	{
-		cell->next = list;
-		// list->prev = cell; // NEW
-
-		return (cell);
-	}
+		return (cell->next = list, cell); // ici dans return
 	while (i < pos)
 	{
 		i++;
@@ -53,12 +48,11 @@ t_pile	*ft_add_pos(t_pile *list, long data, int pos) // OK MODIFIE
 	}
 	previous_pos->next = cell;
 	cell->next = position;
-	cell->prev = previous_pos; // NEW ICIIIIIIIIIIIIIIIIIIIIIIII
-	// position->prev = cell; // NEW SEGFAULT
+	cell->prev = previous_pos;
 	return (list);
 }
 
-int	ft_lst_size(t_pile *pile) // OK MODIFIE
+int	ft_lst_size(t_pile *pile)
 {
 	int	i;
 
@@ -68,21 +62,11 @@ int	ft_lst_size(t_pile *pile) // OK MODIFIE
 		pile = pile->next;
 		i++;
 	}
-	// while (pile && pile->prev) // NEW
-	// {
-	// 	pile = pile->prev; // NEW
-	// 	i++; // NEW
-	// }
-	
 	return (i);
 }
 
-void	ft_init_struct(t_pile *pile) // OK MODIFIE
+void	ft_init_struct(t_pile *pile)
 {
 	pile->size_a = ft_lst_size(pile->pile_a);
 	pile->size_b = ft_lst_size(pile->pile_b);
-	// if (pile->pile_a) // NEW
-	// 	pile->pile_a->prev = NULL; // NEW
-	// if (pile->pile_b) // NEW
-	// 	pile->pile_b->prev = NULL; // NEW
 }

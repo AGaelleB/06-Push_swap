@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:16:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/16 13:45:21 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:51:05 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_check_no_arg(int ac, char **av)
 		ft_printf("%sError : ac is empty%s\n", RED, RESET);
 		exit (0);
 	}
+	(void)ac;
 }
 
 void	ft_check_same_arg(t_pile *pile)
