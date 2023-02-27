@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 14:23:07 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:30:55 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void	ft_move_medium_pile_a(t_pile *pile)
 		pile->mediane_a = pile->size_a / 2;
 		if ((pile->size_a - ft_pos_index_last(pile, data_last))
 			< ft_pos_idx_first(pile->pile_a, data_first))
-			ft_move_last_medium_pile_a(pile, data_last);
+				ft_move_last_medium_pile_a(pile, data_last);
 		else if ((pile->size_a - ft_pos_idx_first(pile->pile_a, data_first))
 			>= ft_pos_idx_first(pile->pile_a, data_first))
-			ft_move_first_medium_pile_a(pile, data_first);
+				ft_move_first_medium_pile_a(pile, data_first);
 		if (pile->pile_a->next == NULL)
 			ft_move_medium_pile_b(pile);
 	}

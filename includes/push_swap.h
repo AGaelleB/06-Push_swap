@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 16:20:48 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/02/27 10:36:57 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_pile {
 	int				data_to_push;
 	int				min_chunk;
 	int				max_chunk;
+	int				left_chunk;
 	int				min_pile_a;
 	int				min_pile_b;
 	int				max_pile_a;
