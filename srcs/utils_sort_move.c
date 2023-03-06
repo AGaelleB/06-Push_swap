@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:06:46 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 14:23:05 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:39:58 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_move_last_medium_pile_a(t_pile *pile, int data_last)
 {
 	while (ft_pos_index_last(pile, data_last) != 0)
-		ft_reverse_rotate_a(pile);
+		ft_reverse_rotate_a(pile); // ici
 	if (pile->pile_b == NULL)
 		ft_push_pile_a_to_b(pile);
 	else
@@ -52,7 +52,7 @@ void	ft_ra_or_rra_big_pile_b(t_pile *pile)
 void	ft_move_last_big_pile_a(t_pile *pile, int data_last)
 {
 	while (ft_pos_index_last(pile, data_last) != 0)
-		ft_reverse_rotate_a(pile);
+		ft_reverse_rotate_a(pile); //ici
 	if (pile->pile_b == NULL)
 		ft_push_pile_a_to_b(pile);
 	else
