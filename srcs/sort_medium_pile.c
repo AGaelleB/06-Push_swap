@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:42:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/27 11:30:55 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:04:25 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,42 @@ void	ft_move_medium_pile_a(t_pile *pile)
 	{
 		data_first = ft_data_index_first(pile);
 		data_last = ft_data_index_last(pile);
+
+		printf("	data_first = %d\n", data_first); // A SUPPRIMER
+		printf("	data_last = %d\n\n", data_last); // A SUPPRIMER
+
 		pile->mediane_a = pile->size_a / 2;
-		if ((pile->size_a - ft_pos_index_last(pile, data_last))
-			< ft_pos_idx_first(pile->pile_a, data_first))
-				ft_move_last_medium_pile_a(pile, data_last);
-		else if ((pile->size_a - ft_pos_idx_first(pile->pile_a, data_first))
-			>= ft_pos_idx_first(pile->pile_a, data_first))
-				ft_move_first_medium_pile_a(pile, data_first);
-		if (pile->pile_a->next == NULL)
+		if ((pile->size_a - ft_pos_index_last(pile, data_last)) < ft_pos_idx_first(pile->pile_a, data_first))
+		{
+			ft_move_last_medium_pile_a(pile, data_last);
+			ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+		}
+		else if ((pile->size_a - ft_pos_idx_first(pile->pile_a, data_first)) >= ft_pos_idx_first(pile->pile_a, data_first))
+		{
+			ft_print_piles(pile->pile_a, pile->pile_b);
+			ft_move_first_medium_pile_a(pile, data_first); // A SUPPRIMER
+		}
+		else if (pile->pile_a->next == NULL)
+		{
 			ft_move_medium_pile_b(pile);
+			ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+		}
 	}
 	while (ft_first_cell(pile->pile_b) != ft_find_max_value(pile->pile_b))
+	{
 		ft_reverse_rotate_b(pile);
+		ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+	}
 	while (pile->pile_b != NULL)
+	{
 		ft_push_pile_b_to_a(pile);
+		ft_print_piles(pile->pile_a, pile->pile_b); // A SUPPRIMER
+	}
 }
 
 void	ft_sort_medium_pile(t_pile *pile)
 {
 	ft_define_chunk_medium(pile);
 	ft_move_medium_pile_a(pile);
+	printf("\nFIN\n"); // A SUPPRIMER
 }
