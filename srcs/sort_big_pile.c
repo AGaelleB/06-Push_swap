@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:32:51 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/08 16:25:53 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:00:12 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ void	ft_move_big_pile_a(t_pile *pile)
 		data_first = ft_data_index_first(pile);
 		data_last = ft_data_index_last(pile);
 		pile->mediane_a = pile->size_a / 2;
-		if ((pile->size_a - ft_pos_index_last(pile, data_last)) < ft_pos_idx_first(pile->pile_a, data_first))
-			ft_move_last_big_pile_a(pile, data_last); // ici
-		else if ((pile->size_a - ft_pos_idx_first(pile->pile_a, data_first)) >= ft_pos_idx_first(pile->pile_a, data_first))
-			ft_move_first_big_pile_a(pile, data_first); // ici
+		if ((pile->size_a - ft_pos_index_last(pile, data_last))
+			< ft_pos_idx_first(pile->pile_a, data_first))
+			ft_move_last_big_pile_a(pile, data_last);
+		else if ((pile->size_a - ft_pos_idx_first(pile->pile_a, data_first))
+			>= ft_pos_idx_first(pile->pile_a, data_first))
+			ft_move_first_big_pile_a(pile, data_first);
 		if (pile->pile_a->next == NULL)
 			ft_move_big_pile_b(pile);
 	}

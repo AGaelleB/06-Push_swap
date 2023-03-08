@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/08 16:30:54 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/08 18:58:13 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,6 @@ typedef struct s_pile {
 	struct s_pile	*next;
 	struct s_pile	*prev;
 }					t_pile;
-
-
-
-void	degeu(t_pile *pile);
-void	ft_print_piles(t_pile *pile_a, t_pile *pile_b);
-void	ft_print_list(t_pile *list);
-
 
 /********************************* push.c ************************************/
 
