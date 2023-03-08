@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:32:51 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/07 11:28:09 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:25:53 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void	ft_move_big_pile_a(t_pile *pile)
 
 void	ft_sort_big_pile(t_pile *pile)
 {
-	ft_define_chunk_big(pile);
+	ft_define_chunk(pile);
 	ft_move_big_pile_a(pile);
 }

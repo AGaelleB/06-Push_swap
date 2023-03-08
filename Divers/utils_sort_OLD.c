@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:21:43 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/07 11:48:06 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:26:03 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	chose_nb_of_chunks(int size) //NEW
 }
 
 
-void	ft_define_chunk_medium(t_pile *pile) // < 100 segfault aux 3 dernieres valeures
+void	ft_define_chunk(t_pile *pile) // < 100 segfault aux 3 dernieres valeures
 {
 	printf("\nWTF\n");
 	
@@ -47,7 +47,7 @@ void	ft_define_chunk_medium(t_pile *pile) // < 100 segfault aux 3 dernieres vale
 	printf("pile->max_chunk = %d\n\n", pile->max_chunk);
 }
 
-void	ft_define_chunk_big(t_pile *pile)
+void	ft_define_chunk(t_pile *pile)
 {
 	pile->min_pile_a = ft_find_min_value(pile->pile_a);
 	pile->max_pile_a = ft_find_max_value(pile->pile_a);
