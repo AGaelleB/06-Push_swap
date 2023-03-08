@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:29:05 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 10:06:17 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:13:48 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int	ft_find_closest_value(t_pile *pile)
 	int		closest_val;
 	int		top_data_pile_a;
 
-	closest_val = 0;
+	closest_val = INT_MIN;
 	top_data_pile_a = pile->pile_a->data;
-	while (closest_val == 0)
+	while (closest_val == INT_MIN)
 	{
 		temp = pile->pile_b;
 		top_data_pile_a = top_data_pile_a - 1;

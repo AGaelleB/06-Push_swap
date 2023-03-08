@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/07 12:00:47 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:37:42 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,7 @@ void	ft_define_chunk_medium(t_pile *pile);
 void	ft_define_chunk_big(t_pile *pile);
 int		ft_data_index_first(t_pile *pile);
 int		ft_data_index_last(t_pile *pile);
+void	ft_next_chunk(t_pile *pile); // NEW
 
 /******************************* verif_arg.c *********************************/
 
