@@ -36,7 +36,10 @@ int	ft_pile_a_is_sort(t_pile *pile)
 void	ft_check_if_sort(t_pile *pile)
 {
 	if (ft_pile_a_is_sort(pile) == 1)
+	{
+		ft_free_list(pile->pile_a);
 		exit (0);
+	}
 }
 
 void	ft_put_in_pile(t_pile *pile, int ac, char **av)
