@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:21:43 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/08 19:00:45 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:16:16 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ int	chose_nb_of_chunks(int size)
 
 	if (size <= 10)
 		nb_of_chunks = 2;
-	else if (size <= 100)
+	else if (size <= 150)
 		nb_of_chunks = 4;
-	else if (size <= 250)
-		nb_of_chunks = 8;
 	else
-		nb_of_chunks = 11;
+		nb_of_chunks = 10;
 	return (nb_of_chunks);
 }
 

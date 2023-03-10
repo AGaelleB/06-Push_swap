@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 10:23:59 by abonnefo          #+#    #+#              #
-#    Updated: 2023/02/23 12:07:08 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/03/10 11:15:43 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,6 @@ SRCS = srcs/push_swap.c \
 	srcs/utils_sort_pos.c \
 	srcs/utils_sort.c \
 	srcs/verif_arg.c \
-	srcs/verif_sort.c \
-	Divers/A_SUPPRIMER.c \
 
 SRC_LIBFT = libft/ft_atoi.c \
 	libft/ft_bzero.c \
@@ -98,7 +96,7 @@ AR = ar rcs
 
 RM = rm -f
 
-%.o: %.c #@echo "\033[0;30m-gcc *.c in progress\033[0m"
+%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

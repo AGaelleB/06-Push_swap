@@ -6,26 +6,50 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:49:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/08 18:58:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:16:50 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	ft_pile_a_is_sort(t_pile *pile)
+{
+	int		i;
+	t_pile	*temp;
+
+	i = 0;
+	temp = pile->pile_a;
+	if (temp == NULL)
+		return (-1);
+	while (temp->next)
+	{
+		if (temp->data < temp->next->data)
+			i++;
+		temp = temp->next;
+	}
+	if (i == pile->size_a - 1)
+		return (1);
+	else
+		return (-1);
+}
+
+void	ft_check_if_sort(t_pile *pile)
+{
+	if (ft_pile_a_is_sort(pile) == 1)
+		exit (0);
+}
+
 void	ft_put_in_pile(t_pile *pile, int ac, char **av)
 {
 	int			i;
-	int			j;
 	long		current_pos;
 
 	i = 1;
-	j = 0;
 	while (i < ac)
 	{
 		current_pos = ft_atoi(av[i]);
-		pile->pile_a = ft_add_pos(pile->pile_a, current_pos, j);
+		pile->pile_a = ft_add_pos(pile->pile_a, current_pos, i - 1);
 		i++;
-		j++;
 	}
 }
 
@@ -33,6 +57,8 @@ int	main(int ac, char **av)
 {
 	t_pile	pile;
 
+	if (*av && ac < 2)
+		return (0);
 	pile.pile_a = NULL;
 	pile.pile_b = NULL;
 	ft_check_ac(ac, av);

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:48:49 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/03/08 18:58:13 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:19:05 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	ft_swap_pile_a_and_b(t_pile *pile);
 
 /******************************** utils_at.c *********************************/
 
-int		ft_get_at(t_pile *list, int pos);
 int		ft_first_cell(t_pile *pile);
 int		ft_last_cell_a(t_pile *pile);
 int		ft_last_cell_b(t_pile *pile);
@@ -148,7 +147,6 @@ int		ft_pos_index_last(t_pile *pile, int data);
 void	ft_define_chunk(t_pile *pile);
 int		ft_data_index_first(t_pile *pile);
 int		ft_data_index_last(t_pile *pile);
-// void	ft_next_chunk(t_pile *pile); // NEW
 
 /******************************* verif_arg.c *********************************/
 
@@ -157,10 +155,9 @@ void	ft_check_no_arg(int ac, char **av);
 void	ft_check_same_arg(t_pile *pile);
 void	ft_check_int_max_and_min(t_pile *pile);
 
-/******************************* verif_sort.c ********************************/
+/******************************* main.c ********************************/
 
 int		ft_pile_a_is_sort(t_pile *pile);
-int		ft_pile_b_is_sort(t_pile *pile);
 void	ft_check_if_sort(t_pile *pile);
 
 #endif

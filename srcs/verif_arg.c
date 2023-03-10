@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:16:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/02/23 09:51:05 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:24:05 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_check_ac(int ac, char **av)
 		{
 			if (!ft_isdigit(arg[j]) && arg[j] != '+' && arg[j] != '-')
 			{
-				ft_printf("%sError : invalid parameters%s\n", RED, RESET);
+				ft_printf("Error\n");
 				exit (0);
 			}
 			j++;
@@ -42,10 +42,7 @@ int	ft_check_ac(int ac, char **av)
 void	ft_check_no_arg(int ac, char **av)
 {
 	if (av[1] == NULL)
-	{
-		ft_printf("%sError : ac is empty%s\n", RED, RESET);
 		exit (0);
-	}
 	(void)ac;
 }
 
@@ -62,7 +59,7 @@ void	ft_check_same_arg(t_pile *pile)
 		{
 			if (temp1->data == temp2->data)
 			{
-				ft_printf("%sError : same numbers put in ac%s\n", RED, RESET);
+				ft_printf("Error\n");
 				ft_free_list(pile->pile_a);
 				exit(0);
 			}
@@ -83,8 +80,7 @@ void	ft_check_int_max_and_min(t_pile *pile)
 	{
 		if ((temp->data > INT_MAX) || (temp->data < INT_MIN))
 		{
-			ft_printf("%sError : number in ac exceed the size of an INT%s\n",
-				RED, RESET);
+			ft_printf("Error\n");
 			ft_free_list(pile->pile_a);
 			exit(0);
 		}
